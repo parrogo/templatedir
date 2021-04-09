@@ -4,7 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"io/fs"
-	
+
 	"github.com/parrogo/templatedir"
 )
 
@@ -13,7 +13,13 @@ var fixtureRootFS embed.FS
 var fixtureFS, _ = fs.Sub(fixtureRootFS, "fixtures")
 
 // This example show how to use templatedir.Func()
-func ExampleFunc() {
-	fmt.Println(templatedir.Func())
-	// Output: 42
+func ExampleDefaultArgs() {
+	args, err := templatedir.DefaultArgs()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(args["RepoName"])
+	fmt.Println(args["Author"])
+	// Output: templatedir
+	// parrogo
 }
