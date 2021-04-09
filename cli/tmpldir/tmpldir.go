@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
@@ -16,8 +17,22 @@ func dieOnErr(err error) {
 	}
 }
 
+// Version of the command
+var Version string = "development"
+
+var options struct {
+	version bool
+}
+
 func main() {
 	fmt.Println("templatedir")
+	flag.BoolVar(&options.version, "v", false, "print version of the command to stdout")
+	flag.Parse()
+
+	if options.version {
+		fmt.Println(Version)
+		os.Exit(0)
+	}
 
 	var targetDir string
 	var err error
