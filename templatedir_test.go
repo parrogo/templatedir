@@ -1,4 +1,4 @@
-package {{.RepoName}}
+package templatedir
 
 import (
 	"embed"

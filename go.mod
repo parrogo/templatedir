@@ -1,4 +1,4 @@
-module github.com/{{.Author}}/{{.RepoName}}
+module github.com/parrogo/templatedir
 
 go 1.16
 
